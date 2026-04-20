@@ -1,0 +1,41 @@
+// {
+//   "files": [],
+//   "references": [
+//     { "path": "./tsconfig.app.json" },
+//     { "path": "./tsconfig.node.json" }
+//   ],
+//   "compilerOptions": {
+//     "target": "ES2020",
+//     "useDefineForClassFields": true,
+//     "module": "ESNext",
+//     "lib": ["ES2020", "DOM", "DOM.Iterable"],
+//     "skipLibCheck": true,
+
+//     /* 路径别名配置（核心新增） */
+//     "baseUrl": ".", // 基准目录为项目根目录
+//     "paths": {
+//       "@/*": ["src/*"] // 映射 @/* 到 src/*
+//     },
+
+//     /* 模块解析配置 */
+//     "moduleResolution": "bundler",
+//     "allowImportingTsExtensions": true,
+//     "resolveJsonModule": true,
+//     "isolatedModules": true,
+//     "noEmit": true,
+//     "jsx": "preserve",
+
+//     /* 类型检查 */
+//     "strict": true,
+//     "noUnusedLocals": true,
+//     "noUnusedParameters": true,
+//     "noFallthroughCasesInSwitch": true
+//   },
+// }
+{
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ]
+}
