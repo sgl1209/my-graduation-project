@@ -1,8 +1,8 @@
 <template>
   <!-- 模板部分完全不变，无需修改 -->
-  <div class="question-generator-container" style="display: flex; gap: 20px; padding: 20px; height: calc(100vh - 60px);">
+  <div class="question-generator-container">
     <!-- 左侧：配置区 -->
-    <div class="left-panel" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+    <div class="left-panel">
       <!-- 输入文本区 -->
       <el-card>
         <template #header>
@@ -15,7 +15,7 @@
           :rows="15"
         />
         <!-- 幻觉拦截提示（直接用Store的状态） -->
-        <div v-if="questionStore.illusionWarn" class="illusion-warn" style="margin: 10px 0; padding: 10px; background: #fef0f0; border: 1px solid #fbc4c4; border-radius: 4px; color: #f56c6c;">
+        <div v-if="questionStore.illusionWarn" class="illusion-warn">
           <i class="el-icon-warning"></i> {{ questionStore.illusionWarn }}
           <div v-if="questionStore.validKs.length > 0" style="margin-top: 5px; font-size: 12px;">
             ✅ 有效知识点：{{ questionStore.validKs.join('、') }}
@@ -30,7 +30,7 @@
         <template #header>
           <span>请选择题目类型</span>
         </template>
-        <div style="display: flex; flex-direction: column; gap: 15px;">
+        <div class="qg-actions">
           <el-select v-model="questionStore.questionType" placeholder="请选择题型" style="width: 100%;">
             <el-option label="单选题" value="single" />
             <el-option label="多选题" value="multiple" />
@@ -48,7 +48,7 @@
     </div>
 
     <!-- 右侧：预览区 -->
-    <div class="right-panel" style="flex: 1.5; overflow-y: auto;">
+    <div class="right-panel">
       <el-card>
         <template #header>
           <el-tabs v-model="activeTab">
@@ -393,6 +393,28 @@ watch(activeTab, (tab) => {
   }
 })
 </script>
+
+<style scoped>
+.illusion-warn {
+  margin: 10px 0;
+  padding: 10px;
+  background: rgba(245, 108, 108, 0.08);
+  border: 1px solid rgba(245, 108, 108, 0.28);
+  border-radius: 12px;
+  color: #b42318;
+}
+
+.qg-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.right-panel :deep(.el-card__body) {
+  overflow: auto;
+  max-height: calc(100vh - var(--app-topbar-height) - 22px - 56px);
+}
+</style>
 
 <style scoped lang="less">
 .question-generator-container {

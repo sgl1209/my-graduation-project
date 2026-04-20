@@ -1,12 +1,11 @@
 <template>
-  <div style="width: 100vw; height: 100vh; margin: 0; padding: 10px; box-sizing: border-box;">
+  <div class="kg-page">
     <!-- 返回出题页面的按钮：独立布局，确保显示 -->
-    <div style="margin-bottom: 15px;">
+    <div class="kg-header">
       <el-button 
         type="primary" 
         icon="el-icon-arrow-left"
         @click="goToQuestionPage"
-        style="padding: 8px 16px; font-size: 14px;"
       >
         返回出题页面
       </el-button>
@@ -14,10 +13,10 @@
 
     <!-- 图谱卡片：适配剩余高度，避免溢出 -->
     <el-card 
-      style="width: 100%; height: calc(100vh - 60px); border-radius: 4px; overflow: hidden;"
+      class="kg-card"
     >
       <!-- 搜索工具栏：固定高度，避免挤压 -->
-      <div style="display: flex; gap: 10px; margin-bottom: 10px; align-items: center; flex-wrap: wrap; padding: 0 5px;">
+      <div class="kg-toolbar">
         <div style="display: flex; gap: 5px; align-items: center;">
           <span>节点名称：</span>
           <el-input
@@ -54,7 +53,7 @@
       <!-- 图谱容器：适配卡片剩余高度，确保滚动/缩放正常 -->
       <div 
         id="graph" 
-        style="width: 100%; height: calc(100% - 50px); background: #f8f9fa; border-radius: 4px; overflow: hidden;"
+        class="kg-graph"
       ></div>
     </el-card>
   </div>
@@ -416,6 +415,30 @@ onUnmounted(() => {
 /* 全局样式优化 */
 * {
   box-sizing: border-box;
+}
+
+.kg-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.kg-toolbar {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 0 4px;
+}
+
+.kg-graph {
+  width: 100%;
+  height: calc(100% - 54px);
+  background: rgba(15, 23, 42, 0.03);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(15, 23, 42, 0.08);
 }
 
 /* 按钮样式优化 */

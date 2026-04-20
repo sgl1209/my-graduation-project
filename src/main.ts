@@ -3,6 +3,7 @@ import { createApp } from 'vue'
 import App from './App.vue'
 
 import 'element-plus/dist/index.css' // 引入Element Plus的样式
+import './styles/main.css'
 import ElementPlus  from 'element-plus'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
